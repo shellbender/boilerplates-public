@@ -1,0 +1,22 @@
+# The boilerplate repository is set to private. Per GitHub documentation,
+# self-hosted runners should not be used with public repos. However,
+# I want the code to be available in a public repo.
+
+name: Push to public repository
+on: push
+jobs:
+  build:
+    name: Pull boilerplates private and push boilerplates public
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout private repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Get all the branches.
+      - name: Mirror to public repository
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url:
+            git@github.com:shellbender/boilerplates-public.git
+          ssh_private_key:
+            ${{ secrets.REPO_PRIVATE_KEY }}
