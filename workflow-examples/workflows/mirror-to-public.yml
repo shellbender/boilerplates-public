@@ -20,6 +20,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           mv .github/ workflow-examples
+
       - name: Mirror to public repository
         uses: pixta-dev/repository-mirroring-action@v1
         with:
