@@ -1,0 +1,5 @@
+proxmox_node = "hillhouse"
+proxmox_vm_id = "161"
+proxmox_vm_name = "rhel-server"
+proxmox_ssh_user = "packer"
+proxmox_ssh_pass = "<password>"
